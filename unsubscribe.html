@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsubscribe - H2 Data Leads</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img 
+                            src="images/h2-logo.png"
+                            alt="H2 Data Leads Logo" 
+                            class="h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-300"
+                        >
+                        <h2 class="text-2xl font-bold ml-6">H2 Data Leads</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-32 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-800 text-white min-h-screen">
+        <div class="container mx-auto px-6 py-16">
+            <main class="max-w-4xl mx-auto">
+                <section class="text-center mb-12">
+                    <h1 class="text-4xl font-bold mb-4">Unsubscribe from H2 Data Leads</h1>
+                    <p class="text-xl text-indigo-100 mb-8">We're sorry to see you go. Please enter your email address below to unsubscribe from our communications.</p>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+                        <form id="unsubscribeForm">
+                            <div class="mb-4">
+                                <input type="email" id="email" name="email" required 
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                    placeholder="Enter your email address">
+                            </div>
+                            <button type="submit" 
+                                class="w-full bg-indigo-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 transition duration-300 ease-in-out">
+                                Unsubscribe
+                            </button>
+                        </form>
+                        <div id="successMessage" class="hidden mt-4 text-indigo-600 text-lg">
+                            You have been successfully unsubscribed. Thank you!
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">H2 Data Leads</h3>
+                    <p class="text-gray-400">Transforming businesses through targeted lead generation</p>
+                    <p class="text-gray-400 mt-2">Email: <a href="mailto:team@h2dataleads.com" class="text-indigo-400 hover:text-indigo-300">info@h2dataleads.com</a></p>
+                </div>
+                <div class="flex justify-start md:justify-end space-x-6">
+                    <a href="https://www.linkedin.com/company/h2-data-services" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/h2leads" class="text-gray-400 hover:text-white transition" aria-label="X">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-center text-gray-400">&copy; 2025 H2 Data Leads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Auto-fill email if provided in URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const email = getUrlParameter('email');
+            if (email) {
+                document.getElementById('email').value = email;
+            }
+        });
+
+        document.getElementById('unsubscribeForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const webhookUrl = 'https://discord.com/api/webhooks/1364678202445791305/7uqlK3F-ivO4oY85qTG-LW6xFQMUbYpLmIZMnH-0gHCsNaYWiAEGhcG-i4KfYMturQ_1';
+            
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        content: `New unsubscribe request for h2dataleads.com: ${email}`
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('unsubscribeForm').style.display = 'none';
+                    document.getElementById('successMessage').classList.remove('hidden');
+                } else {
+                    alert('There was an error processing your request. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error processing your request. Please try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
