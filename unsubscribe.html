@@ -106,16 +106,15 @@
             e.preventDefault();
             
             const email = document.getElementById('email').value;
-            const webhookUrl = 'https://discord.com/api/webhooks/1364678202445791305/7uqlK3F-ivO4oY85qTG-LW6xFQMUbYpLmIZMnH-0gHCsNaYWiAEGhcG-i4KfYMturQ_1';
             
             try {
-                const response = await fetch(webhookUrl, {
+                const response = await fetch('https://spr3adsh33t.com/api/unsubscribe', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        content: `New unsubscribe request for h2dataleads.com: ${email}`
+                        email: email
                     })
                 });
 
@@ -123,7 +122,8 @@
                     document.getElementById('unsubscribeForm').style.display = 'none';
                     document.getElementById('successMessage').classList.remove('hidden');
                 } else {
-                    alert('There was an error processing your request. Please try again later.');
+                    const data = await response.json();
+                    alert(data.message || 'There was an error processing your request. Please try again later.');
                 }
             } catch (error) {
                 console.error('Error:', error);
